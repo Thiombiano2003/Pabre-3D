@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#150f0c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Pabré Dam — Water Body Evolution, 1995–2025</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,92 +40,100 @@
   .hud *{pointer-events:auto;}
 
   /* ---- Title block ---- */
-  #title-block{top:max(28px, env(safe-area-inset-top)); left:max(32px, env(safe-area-inset-left)); max-width:420px;}
+  #title-block{
+    top:max(20px, env(safe-area-inset-top)); left:max(20px, env(safe-area-inset-left));
+    width:clamp(160px, 58vw, 420px);
+  }
   #title-block h1{
-    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.5rem;
-    margin:0 0 4px 0; letter-spacing:-0.01em; color:var(--text-warm);
+    font-family:'Space Grotesk', sans-serif; font-weight:600;
+    font-size:clamp(1.05rem, 0.9rem + 1.6vw, 1.5rem);
+    margin:0 0 4px 0; letter-spacing:-0.01em; color:var(--text-warm); line-height:1.15;
   }
   #title-block p{
-    margin:0; font-size:0.85rem; color:var(--text-muted); line-height:1.4;
+    margin:0; font-size:clamp(0.74rem, 0.68rem + 0.3vw, 0.85rem); color:var(--text-muted); line-height:1.4;
   }
 
   /* ---- Legend ---- */
   #legend{
-    bottom:150px; right:max(32px, env(safe-area-inset-right)); background:var(--bg-panel); backdrop-filter:blur(6px);
-    border:1px solid var(--line); border-radius:10px; padding:14px 16px; width:180px;
+    bottom:clamp(110px, 18vh, 150px); right:max(20px, env(safe-area-inset-right)); background:var(--bg-panel); backdrop-filter:blur(6px);
+    border:1px solid var(--line); border-radius:10px; padding:clamp(10px,2vw,14px) clamp(12px,2.4vw,16px);
+    width:clamp(130px, 22vw, 180px);
   }
-  #legend .legend-title{font-size:0.72rem; color:var(--text-muted); margin-bottom:8px;}
+  #legend .legend-title{font-size:clamp(0.62rem, 0.5rem + 0.4vw, 0.72rem); color:var(--text-muted); margin-bottom:8px;}
   #legend .ramp{height:8px; border-radius:4px; background:linear-gradient(90deg,#d9c08b,#c99a5b,#a8542e,#7a3520);}
-  #legend .ramp-labels{display:flex; justify-content:space-between; font-size:0.68rem; color:var(--text-muted); margin-top:5px;}
+  #legend .ramp-labels{display:flex; justify-content:space-between; font-size:clamp(0.6rem,0.5rem+0.3vw,0.68rem); color:var(--text-muted); margin-top:5px;}
 
   /* ---- Orbit hint ---- */
   #hint{bottom:max(20px, env(safe-area-inset-bottom)); left:max(32px, env(safe-area-inset-left)); font-size:0.72rem; color:var(--text-muted);}
 
   /* ---- Scale bar (bottom-left) ---- */
   #geo-panel{
-    bottom:max(50px, calc(20px + env(safe-area-inset-bottom))); left:max(32px, env(safe-area-inset-left));
-    display:flex; align-items:flex-end; gap:14px;
+    bottom:max(44px, calc(20px + env(safe-area-inset-bottom))); left:max(20px, env(safe-area-inset-left));
+    display:flex; align-items:flex-end; gap:clamp(8px,1.6vw,14px);
     background:var(--bg-panel); backdrop-filter:blur(6px);
-    border:1px solid var(--line); border-radius:10px; padding:12px 18px 10px 18px;
+    border:1px solid var(--line); border-radius:10px;
+    padding:clamp(8px,1.6vw,12px) clamp(12px,2.4vw,18px) clamp(7px,1.4vw,10px);
   }
   #scale-group{ display:flex; flex-direction:column; align-items:center; }
   #scale-bar{
-    height:9px; border-left:2.5px solid var(--text-warm); border-right:2.5px solid var(--text-warm);
-    border-bottom:2.5px solid var(--text-warm); width:130px; transition:width 0.15s ease;
+    height:clamp(6px,0.9vw,9px); border-left:2.5px solid var(--text-warm); border-right:2.5px solid var(--text-warm);
+    border-bottom:2.5px solid var(--text-warm); width:clamp(64px, 10vw, 130px); transition:width 0.15s ease;
   }
-  #scale-label{ font-size:0.92rem; font-weight:600; color:var(--text-warm); margin-top:5px; font-family:'Space Grotesk', sans-serif; white-space:nowrap; }
+  #scale-label{ font-size:clamp(0.7rem, 0.6rem + 0.5vw, 0.92rem); font-weight:600; color:var(--text-warm); margin-top:5px; font-family:'Space Grotesk', sans-serif; white-space:nowrap; }
 
   /* ---- Compass (top-right) ---- */
   #compass-wrap{
-    top:max(28px, env(safe-area-inset-top)); right:max(32px, env(safe-area-inset-right));
+    top:max(20px, env(safe-area-inset-top)); right:max(20px, env(safe-area-inset-right));
     background:var(--bg-panel); backdrop-filter:blur(6px);
-    border:1px solid var(--line); border-radius:50%; padding:10px;
+    border:1px solid var(--line); border-radius:50%; padding:clamp(6px,1.2vw,10px);
   }
-  #compass{ width:72px; height:72px; display:block; }
+  #compass{ width:clamp(42px, 8vw, 72px); height:clamp(42px, 8vw, 72px); display:block; }
   #compass-needle{ transform-origin:50% 50%; transition:transform 0.05s linear; }
 
   /* ---- View toggle button ---- */
-  #view-toggle-wrap{ bottom:120px; right:max(32px, env(safe-area-inset-right)); }
+  #view-toggle-wrap{ bottom:max(20px, env(safe-area-inset-bottom)); right:max(20px, env(safe-area-inset-right)); }
   #view-toggle-btn{
-    width:38px; height:38px; border-radius:50%; background:var(--bg-panel); backdrop-filter:blur(6px);
+    width:44px; height:44px; border-radius:50%; background:var(--bg-panel); backdrop-filter:blur(6px);
     border:1px solid var(--line); cursor:pointer; display:flex; align-items:center; justify-content:center;
     color:var(--text-warm); transition:background 0.15s ease, transform 0.15s ease;
     -webkit-tap-highlight-color:transparent;
   }
   #view-toggle-btn:hover{ background:var(--bg-panel-solid); transform:scale(1.06); }
-  #view-toggle-btn svg{ width:17px; height:17px; }
+  #view-toggle-btn svg{ width:18px; height:18px; }
 
   /* ---- Diagnostic panel (revealed at final year) ---- */
   #diag-panel{
-    top:max(128px, calc(118px + env(safe-area-inset-top))); right:max(32px, env(safe-area-inset-right)); width:240px; background:var(--bg-panel); backdrop-filter:blur(6px);
-    border:1px solid var(--line); border-radius:12px; padding:14px 16px;
+    top:max(122px, calc(112px + env(safe-area-inset-top))); right:max(20px, env(safe-area-inset-right));
+    width:clamp(190px, 24vw, 240px); background:var(--bg-panel); backdrop-filter:blur(6px);
+    border:1px solid var(--line); border-radius:12px; padding:clamp(11px,2vw,14px) clamp(13px,2.4vw,16px);
     opacity:0; transform:translateY(-6px); pointer-events:none;
     transition:opacity 0.5s ease, transform 0.5s ease;
   }
   #diag-panel.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
-  #diag-title{font-family:'Space Grotesk', sans-serif; font-size:0.82rem; font-weight:600; margin-bottom:2px;}
+  #diag-title{font-family:'Space Grotesk', sans-serif; font-size:clamp(0.76rem,0.7rem+0.3vw,0.82rem); font-weight:600; margin-bottom:2px;}
   #diag-sub{font-size:0.7rem; color:var(--text-muted); margin-bottom:10px;}
-  .diag-row{display:flex; align-items:center; gap:8px; font-size:0.74rem; color:var(--text-muted); margin-bottom:6px;}
+  .diag-row{display:flex; align-items:center; gap:8px; font-size:clamp(0.68rem,0.62rem+0.3vw,0.74rem); color:var(--text-muted); margin-bottom:6px;}
   .diag-swatch{width:12px; height:12px; border-radius:3px; flex:0 0 auto;}
 
   /* ---- Timeline panel ---- */
   #timeline{
-    bottom:max(28px, env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%);
+    bottom:max(20px, env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%);
     background:var(--bg-panel); backdrop-filter:blur(8px);
     border:1px solid var(--line); border-radius:14px;
-    padding:18px 28px 16px 28px; width:min(600px, 88vw);
+    padding:clamp(12px,2.2vw,18px) clamp(16px,3.6vw,28px) clamp(12px,2vw,16px);
+    width:min(600px, 94vw);
   }
-  #timeline-top{display:flex; align-items:center; gap:18px;}
+  #timeline-top{display:flex; align-items:center; gap:clamp(10px,2vw,18px);}
   #play-btn{
-    flex:0 0 auto; width:38px; height:38px; border-radius:50%;
+    flex:0 0 auto; width:44px; height:44px; border-radius:50%;
     background:var(--accent); border:none; cursor:pointer;
     display:flex; align-items:center; justify-content:center;
     transition:transform 0.15s ease, background 0.15s ease;
   }
   #play-btn:hover{transform:scale(1.06);}
-  #play-btn svg{width:14px; height:14px;}
+  #play-btn svg{width:15px; height:15px;}
 
-  #track{position:relative; flex:1; height:38px;}
+  #track{position:relative; flex:1; height:44px;}
   #track-line{
     position:absolute; top:50%; left:0; right:0; height:2px;
     background:var(--line); transform:translateY(-50%);
@@ -134,28 +146,28 @@
   .year-stop{
     position:absolute; top:50%; transform:translate(-50%,-50%);
     display:flex; flex-direction:column; align-items:center; cursor:pointer;
-    background:none; border:none; padding:14px 16px; color:inherit;
+    background:none; border:none; padding:16px 14px; color:inherit;
     -webkit-tap-highlight-color:transparent;
   }
   .year-dot{
-    width:12px; height:12px; border-radius:50%; background:var(--bg-panel-solid);
+    width:clamp(12px,1.6vw,14px); height:clamp(12px,1.6vw,14px); border-radius:50%; background:var(--bg-panel-solid);
     border:2px solid var(--line); transition:all 0.25s ease;
   }
   .year-stop.active .year-dot{background:var(--accent); border-color:var(--accent); box-shadow:0 0 0 4px rgba(226,163,63,0.2);}
   .year-label{
-    position:absolute; top:30px; font-size:0.74rem; font-weight:500;
+    position:absolute; top:32px; font-size:clamp(0.66rem, 0.6rem + 0.3vw, 0.74rem); font-weight:500;
     color:var(--text-muted); white-space:nowrap; font-family:'Space Grotesk', sans-serif;
   }
   .year-stop.active .year-label{color:var(--text-warm);}
 
   #stats{
-    display:flex; justify-content:space-between; margin-top:26px;
+    display:flex; justify-content:space-between; margin-top:clamp(16px,3vw,26px);
     padding-top:12px; border-top:1px solid var(--line);
-    font-family:'Space Grotesk', sans-serif;
+    font-family:'Space Grotesk', sans-serif; gap:8px;
   }
-  .stat{text-align:left;}
-  .stat .stat-label{font-size:0.66rem; color:var(--text-muted); font-family:'IBM Plex Sans', sans-serif;}
-  .stat .stat-value{font-size:1.05rem; font-weight:600; margin-top:2px;}
+  .stat{text-align:left; min-width:0;}
+  .stat .stat-label{font-size:clamp(0.6rem,0.55rem+0.2vw,0.66rem); color:var(--text-muted); font-family:'IBM Plex Sans', sans-serif; white-space:nowrap;}
+  .stat .stat-value{font-size:clamp(0.85rem,0.75rem+0.5vw,1.05rem); font-weight:600; margin-top:2px; white-space:nowrap;}
   .stat .stat-value.water{color:var(--water-surface);}
   .stat .stat-value.delta-neg{color:#d9705a;}
   .stat .stat-value.delta-pos{color:#7ec78f;}
@@ -173,59 +185,63 @@
   }
   @keyframes spin{to{transform:rotate(360deg);}}
 
-  @media (max-width:640px){
-    #title-block{max-width:56vw;}
-    #title-block h1{font-size:1.1rem;}
+  /* ================= Structural breakpoints (content-driven, not device models) ================= */
+
+  /* Large phones / small tablets in portrait: trim secondary text, and lift the
+     floating corner widgets (scale bar, view toggle, diagnostic) above the
+     timeline card, which spans near full width here and would otherwise cover them. */
+  @media (max-width:900px){
     #title-block p{display:none;}
     #legend{display:none;}
+    #geo-panel{bottom:max(178px, calc(158px + env(safe-area-inset-bottom))); left:max(16px, env(safe-area-inset-left));}
+    #view-toggle-wrap{bottom:max(178px, calc(158px + env(safe-area-inset-bottom))); right:max(16px, env(safe-area-inset-right));}
     #diag-panel{
-      top:auto; bottom:150px; left:max(20px, env(safe-area-inset-left));
-      right:max(20px, env(safe-area-inset-right)); width:auto; max-width:none;
+      top:auto; bottom:max(232px, calc(212px + env(safe-area-inset-bottom))); left:max(16px, env(safe-area-inset-left));
+      right:max(16px, env(safe-area-inset-right)); width:auto;
       padding:10px 14px; transform:translateY(6px);
     }
     #diag-panel.open{transform:translateY(0);}
-    #diag-title{font-size:0.74rem;}
     #diag-sub{display:none;}
-    .diag-row{display:inline-flex; margin-right:14px; margin-bottom:0; font-size:0.66rem;}
-    .diag-swatch{width:10px; height:10px;}
-    #timeline{padding:14px 16px 12px 16px; width:92vw;}
-    #stats{gap:8px;}
-    .stat .stat-value{font-size:0.9rem;}
+    .diag-row{display:inline-flex; margin-right:14px; margin-bottom:0;}
+  }
+
+  /* The orbit hint's text is the widest floating element on screen -- keep it
+     desktop-only so it never has to compete for space with the timeline card. */
+  @media (max-width:1023px){
     #hint{display:none;}
-    #geo-panel{bottom:max(20px, env(safe-area-inset-bottom)); padding:8px 12px 7px 12px;}
-    #scale-bar{width:80px;}
-    #scale-label{font-size:0.76rem;}
-    #compass-wrap{padding:7px;}
-    #compass{width:52px; height:52px;}
-    #view-toggle-wrap{bottom:150px;}
-    #view-toggle-btn{width:36px; height:36px;}
   }
 
-  @media (max-width:400px){
-    #title-block{max-width:48vw;}
-    #title-block h1{font-size:1rem;}
+  /* Small phones: tighten spacing further */
+  @media (max-width:420px){
     .diag-row{display:block; margin-right:0;}
-    #compass{width:44px; height:44px;}
-    #compass-wrap{padding:6px;}
+    #timeline{padding:12px 14px 10px;}
   }
 
-  @media (pointer:coarse){
-    #play-btn{width:44px; height:44px;}
-    #play-btn svg{width:16px; height:16px;}
-    .year-dot{width:14px; height:14px;}
+  /* Short viewports (phone in landscape): compress the vertical stack */
+  @media (max-height:480px) and (orientation:landscape){
+    #title-block{top:10px;}
+    #compass-wrap{top:10px;}
+    #timeline{padding:8px 18px 7px; bottom:max(8px, env(safe-area-inset-bottom));}
+    #timeline-top{gap:10px;}
+    #stats{margin-top:8px; padding-top:6px;}
+    #compass{width:36px; height:36px;}
+    #hint{display:none;}
+    #geo-panel{padding:6px 10px 5px;}
+    #scale-bar{width:60px;}
   }
 
-  @media (orientation:landscape) and (max-height:480px){
-    #timeline{padding:10px 20px 8px 20px; bottom:max(12px, env(safe-area-inset-bottom));}
-    #timeline-top{gap:12px;}
-    #stats{margin-top:12px; padding-top:8px;}
-    #title-block{top:14px;}
-    #diag-panel{top:auto; bottom:110px;}
-    #geo-panel{bottom:max(10px, env(safe-area-inset-bottom)); padding:6px 12px 5px 12px;}
-    #scale-bar{width:70px;}
-    #compass-wrap{top:14px; padding:6px;}
-    #compass{width:42px; height:42px;}
-    #view-toggle-wrap{bottom:100px;}
+  /* Narrow AND short (phones in landscape, not tablets): the timeline still
+     spans near full width here, so the corner widgets need lifting clear of it. */
+  @media (max-width:900px) and (max-height:480px) and (orientation:landscape){
+    #diag-panel{top:auto; bottom:max(150px, calc(130px + env(safe-area-inset-bottom)));}
+    #geo-panel{bottom:max(112px, calc(92px + env(safe-area-inset-bottom)));}
+    #view-toggle-wrap{bottom:max(112px, calc(92px + env(safe-area-inset-bottom)));}
+  }
+
+  /* Tablets and up: a little extra breathing room */
+  @media (min-width:1024px){
+    #title-block{top:32px; left:36px;}
+    #timeline{padding:20px 32px 18px;}
   }
 </style>
 </head>
